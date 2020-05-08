@@ -3,17 +3,18 @@ import React, {useState} from 'react'
 const ColorForm = (props) => {
     let [myColor, setMyColor] = useState('')
     
-    const handler = props.addColor
+    const addColor = props.addColor
     
     const setColor = (input) => {
         setMyColor(input)
+        myColor = input
     }
 
     console.log('Color is: ', myColor)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        handler(myColor)
+        addColor(myColor)
     }
 
     return (

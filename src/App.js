@@ -8,9 +8,9 @@ function App(props) {
 
   const colorMap = colors.map((color, i) => {
     return (
-      <li key={i}>
-        <div style={{'background-color': `${color}`}}>{color}</div>
-      </li>
+      <div key={i}>
+        <div className="colorBlock" style={{'background-color': `${color}`}}></div>
+      </div>
     )
   })
 
@@ -23,7 +23,7 @@ function App(props) {
     <div className="App">
       <ul>
         {colorMap}
-        <li><div style={{'background-color': `${newColor}`}}>{newColor}</div></li>
+        <div className="colorBlock" style={{'background-color': `${newColor}`}}></div>
       </ul>
       <ColorForm addColor={addColor} />
     </div>
