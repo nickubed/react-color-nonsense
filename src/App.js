@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+import ColorForm from './ColorForm'
 import './App.css';
 
-function App() {
+function App(props) {
+  let [newColor, setNewColor] = useState('')
+
+  const colorMap = props.elements.map((color, i) => {
+    return (
+      <li key={i}>
+        <div style={{'background-color': `${color}`}}>{color}</div>
+      </li>
+    )
+  })
+
+  const addColor = (userColor) => {
+    setNewColor(userColor)
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul>
+        {colorMap}
+        <li><div style={{'background-color': `${newColor}`}}>{newColor}</div></li>
+      </ul>
+      <ColorForm addColor={addColor} />
     </div>
   );
 }
