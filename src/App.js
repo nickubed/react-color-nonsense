@@ -4,8 +4,9 @@ import './App.css';
 
 function App(props) {
   let [newColor, setNewColor] = useState('')
+  let [colors, setColors] = useState(props.elements)
 
-  const colorMap = props.elements.map((color, i) => {
+  const colorMap = colors.map((color, i) => {
     return (
       <li key={i}>
         <div style={{'background-color': `${color}`}}>{color}</div>
@@ -15,6 +16,7 @@ function App(props) {
 
   const addColor = (userColor) => {
     setNewColor(userColor)
+    setColors(colors.concat(newColor))
   }
   
   return (
