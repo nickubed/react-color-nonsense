@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-let colors = ['blue', 'violet', 'orange', 'pink', 'black', 'red', 'white', 'green', 'fuchsia']
+let colors = []
 
 ReactDOM.render(
   <React.StrictMode>
-    <App elements={colors}/>
+    <App colors={colors}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

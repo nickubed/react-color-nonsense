@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import ColorForm from './ColorForm'
 import './App.css';
 
-function App(props) {
+const App = (props) => {
   let [newColor, setNewColor] = useState('')
-  let [colors, setColors] = useState(props.elements)
+  let [colors, setColors] = useState(props.colors)
 
   const colorMap = colors.map((color, i) => {
     return (
@@ -16,6 +16,8 @@ function App(props) {
 
   const addColor = (userColor) => {
     setNewColor(userColor)
+    // janky, removes "latency"
+    newColor = userColor
     setColors(colors.concat(newColor))
   }
   
@@ -23,7 +25,6 @@ function App(props) {
     <div className="App">
       <ul>
         {colorMap}
-        <div className="colorBlock" style={{'background-color': `${newColor}`}}></div>
       </ul>
       <ColorForm addColor={addColor} />
     </div>
