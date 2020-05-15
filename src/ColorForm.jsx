@@ -3,6 +3,8 @@ import React, {useState} from 'react'
 const ColorForm = (props) => {
     let [myColor, setMyColor] = useState('')
 
+
+
     const setColor = (input) => {
         setMyColor(input)
         myColor = input

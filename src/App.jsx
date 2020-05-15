@@ -14,11 +14,18 @@ const App = (props) => {
     )
   })
 
+  const isValidColor = (strColor) => {
+    var s = new Option().style;
+    s.color = strColor;
+    // return 'false' if color wasn't assigned
+    return s.color == strColor.toLowerCase();
+}
+
   const addColor = (userColor) => {
-    setNewColor(userColor)
-    // janky, removes "latency"
-    newColor = userColor
-    setColors(colors.concat(newColor))
+    if (isValidColor(userColor)) {
+      setNewColor(userColor)
+      setColors(colors.concat(userColor))
+    }
   }
   
   return (
